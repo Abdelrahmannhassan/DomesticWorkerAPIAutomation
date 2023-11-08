@@ -146,7 +146,16 @@ Test case - verify that when send a PUT request for sponsors with policy effecti
 Test case - verify that when send a PUT request for sponsors with mobile number more than 10 digits
    Create application to make PUT request for Sponsors
    Create API session
-   ${Payload}  evaluate    json.dumps({"IdentityNumber":"${identityNumber}" ,"dateOfBirthMonth": ${dateOfBirthMonth} ,"dateOfBirthYear": ${dateOfBirthYear} ,"policyEffectiveDate": ${TodayDate+2},"mobileNumber":"05563632152"})
+   ${Payload}  evaluate    json.dumps({"IdentityNumber":"${identityNumber}" ,"dateOfBirthMonth": ${dateOfBirthMonth} ,"dateOfBirthYear": ${dateOfBirthYear} ,"policyEffectiveDate": "${TodayDate+2}","mobileNumber":"05563632152"})
    Put request and check response with body appears     ${sessionName}   ${URI}/${ApplicationRef}/Sponsors    ${Payload}       422
    set test variable     ${actualResult}
    verify API Response when send PUT Request for sponsor with mobile number more than 10 digits     ${actualResult}
+
+
+Test case - verify that when send a PUT request for sponsors with mobile number with special character
+   Create application to make PUT request for Sponsors
+   Create API session
+   ${Payload}  evaluate    json.dumps({"IdentityNumber":"${identityNumber}" ,"dateOfBirthMonth": ${dateOfBirthMonth} ,"dateOfBirthYear": ${dateOfBirthYear} ,"policyEffectiveDate": "${TodayDate+2}","mobileNumber":"055212363@"})
+   Put request and check response with body appears     ${sessionName}   ${URI}/${ApplicationRef}/Sponsors    ${Payload}       422
+   set test variable     ${actualResult}
+   verify API Response when send PUT Request for sponsor with mobile number with special character     ${actualResult}
