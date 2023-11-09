@@ -159,3 +159,12 @@ Test case - verify that when send a PUT request for sponsors with mobile number 
    Put request and check response with body appears     ${sessionName}   ${URI}/${ApplicationRef}/Sponsors    ${Payload}       422
    set test variable     ${actualResult}
    verify API Response when send PUT Request for sponsor with mobile number with special character     ${actualResult}
+
+
+Test case - verify that when send a PUT request for sponsors with mobile number is empty
+   Create application to make PUT request for Sponsors
+   Create API session
+   ${Payload}  evaluate    json.dumps({"IdentityNumber":"${identityNumber}" ,"dateOfBirthMonth": ${dateOfBirthMonth} ,"dateOfBirthYear": ${dateOfBirthYear} ,"policyEffectiveDate": "${TodayDate+2}","mobileNumber":None})
+   Put request and check response with body appears     ${sessionName}   ${URI}/${ApplicationRef}/Sponsors    ${Payload}       422
+   set test variable     ${actualResult}
+   verify API Response when send PUT Request for sponsor with mobile number is empty     ${actualResult}

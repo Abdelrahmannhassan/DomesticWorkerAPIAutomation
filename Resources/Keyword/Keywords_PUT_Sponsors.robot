@@ -83,3 +83,10 @@ Verify API Response with when send PUT Request for sponsor with invalid data
     [Arguments]           ${actualResult}
     should be equal as strings        ${actualResult['errorCode']}  ValidationErrorCode
     should be equal as strings        ${actualResult['errors']}  ['Mobile Number Must Be Number']
+
+
+ verify API Response when send PUT Request for sponsor with mobile number is empty
+    [Documentation]    veriy actual resutls
+    [Arguments]           ${actualResult}
+    should be equal as strings        ${actualResult['errorCode']}  ValidationErrorCode
+    should be equal as strings        ${actualResult['errors']}  ['Mobile Number field is mandatory']
