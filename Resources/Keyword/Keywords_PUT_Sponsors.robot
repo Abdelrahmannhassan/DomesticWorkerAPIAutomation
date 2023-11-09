@@ -78,6 +78,12 @@ Verify API Response with when send PUT Request for sponsor with invalid data
     should be equal as strings        ${actualResult['errors']}  ['Maximum Length Mobile Number is 10 Number']
 
 
+ verify API Response when send PUT Request for sponsor with mobile number less than 10 digits
+    [Documentation]    veriy actual resutls
+    [Arguments]           ${actualResult}
+    should be equal as strings        ${actualResult['errorCode']}  ValidationErrorCode
+
+
  verify API Response when send PUT Request for sponsor with mobile number with special character
     [Documentation]    veriy actual resutls
     [Arguments]           ${actualResult}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20231108 16:28:49.524" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20231109 13:46:40.715" rpa="false" schemaversion="4">
 <suite id="s1" name="0.5-PUT-Sponsors" source="E:\injection\DomesticWorkerAPIAutomation\Tests\0.5-PUT-Sponsors.robot">
-<test id="s1-t1" name="Test case - verify that when send a PUT request for sponsors with mobile number is empty" line="164">
+<test id="s1-t1" name="Test case - verify that when send a PUT request for sponsors with mobile number less than 10 digits" line="154">
 <kw name="Create application to make PUT request for Sponsors" library="Common">
 <kw name="Create API session" library="API_Preferences">
 <kw name="Generate Random String" library="String">
@@ -9,21 +9,21 @@
 <arg>4</arg>
 <arg>[NUMBERS]</arg>
 <doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<msg timestamp="20231108 16:28:49.754" level="INFO">${randomNumber} = 1876</msg>
-<status status="PASS" starttime="20231108 16:28:49.754" endtime="20231108 16:28:49.754"/>
+<msg timestamp="20231109 13:46:40.936" level="INFO">${randomNumber} = 7431</msg>
+<status status="PASS" starttime="20231109 13:46:40.936" endtime="20231109 13:46:40.945"/>
 </kw>
 <kw name="Catenate" library="BuiltIn">
 <var>${sessionName}</var>
 <arg>session_${randomNumber}</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<msg timestamp="20231108 16:28:49.754" level="INFO">${sessionName} = session_1876</msg>
-<status status="PASS" starttime="20231108 16:28:49.754" endtime="20231108 16:28:49.754"/>
+<msg timestamp="20231109 13:46:40.945" level="INFO">${sessionName} = session_7431</msg>
+<status status="PASS" starttime="20231109 13:46:40.945" endtime="20231109 13:46:40.945"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${sessionName}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20231108 16:28:49.754" level="INFO">${sessionName} = session_1876</msg>
-<status status="PASS" starttime="20231108 16:28:49.754" endtime="20231108 16:28:49.754"/>
+<msg timestamp="20231109 13:46:40.945" level="INFO">${sessionName} = session_7431</msg>
+<status status="PASS" starttime="20231109 13:46:40.945" endtime="20231109 13:46:40.945"/>
 </kw>
 <kw name="Create Session" library="RequestsLibrary">
 <arg>${sessionName}</arg>
@@ -31,10 +31,10 @@
 <arg>timeout=30</arg>
 <arg>disable_warnings=1</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20231108 16:28:49.754" level="INFO">Creating Session using : alias=session_1876, url=http://10.142.4.171:8091/api, headers={},                     cookies={}, auth=None, timeout=30, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20231108 16:28:49.754" endtime="20231108 16:28:49.757"/>
+<msg timestamp="20231109 13:46:40.945" level="INFO">Creating Session using : alias=session_7431, url=http://10.142.4.171:8091/api, headers={},                     cookies={}, auth=None, timeout=30, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231109 13:46:40.945" endtime="20231109 13:46:40.945"/>
 </kw>
-<status status="PASS" starttime="20231108 16:28:49.754" endtime="20231108 16:28:49.757"/>
+<status status="PASS" starttime="20231109 13:46:40.936" endtime="20231109 13:46:40.945"/>
 </kw>
 <kw name="Create_Date_Today+2" library="API_Preferences">
 <kw name="Get Current Date" library="DateTime">
@@ -42,23 +42,23 @@
 <arg>increment=48h</arg>
 <arg>result_format=%d-%m-%Y</arg>
 <doc>Returns current local or UTC time with an optional increment.</doc>
-<msg timestamp="20231108 16:28:49.757" level="INFO">${TodayDate+2} = 10-11-2023</msg>
-<status status="PASS" starttime="20231108 16:28:49.757" endtime="20231108 16:28:49.757"/>
+<msg timestamp="20231109 13:46:40.945" level="INFO">${TodayDate+2} = 11-11-2023</msg>
+<status status="PASS" starttime="20231109 13:46:40.945" endtime="20231109 13:46:40.945"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${TodayDate+2}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20231108 16:28:49.757" level="INFO">${TodayDate+2} = 10-11-2023</msg>
-<status status="PASS" starttime="20231108 16:28:49.757" endtime="20231108 16:28:49.757"/>
+<msg timestamp="20231109 13:46:40.945" level="INFO">${TodayDate+2} = 11-11-2023</msg>
+<status status="PASS" starttime="20231109 13:46:40.945" endtime="20231109 13:46:40.945"/>
 </kw>
-<status status="PASS" starttime="20231108 16:28:49.757" endtime="20231108 16:28:49.757"/>
+<status status="PASS" starttime="20231109 13:46:40.945" endtime="20231109 13:46:40.945"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${Payload}</var>
 <arg>json.dumps({"identityNumber":"${identityNumber}","dateOfBirthMonth":${dateOfBirthMonth},"dateOfBirthYear":${dateOfBirthYear},"policyEffectiveDate":"${TodayDate+2}","isGrantTameeni":True, "recaptchaToken":"True"})</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20231108 16:28:49.757" level="INFO">${Payload} = {"identityNumber": "1061246813", "dateOfBirthMonth": 11, "dateOfBirthYear": 1409, "policyEffectiveDate": "10-11-2023", "isGrantTameeni": true, "recaptchaToken": "True"}</msg>
-<status status="PASS" starttime="20231108 16:28:49.757" endtime="20231108 16:28:49.757"/>
+<msg timestamp="20231109 13:46:40.945" level="INFO">${Payload} = {"identityNumber": "1061246813", "dateOfBirthMonth": 11, "dateOfBirthYear": 1409, "policyEffectiveDate": "11-11-2023", "isGrantTameeni": true, "recaptchaToken": "True"}</msg>
+<status status="PASS" starttime="20231109 13:46:40.945" endtime="20231109 13:46:40.945"/>
 </kw>
 <kw name="Post Request and check response" library="API_Preferences">
 <arg>${sessionName}</arg>
@@ -69,8 +69,8 @@
 <var>${header}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20231108 16:28:49.757" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20231108 16:28:49.757" endtime="20231108 16:28:49.757"/>
+<msg timestamp="20231109 13:46:40.945" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20231109 13:46:40.945" endtime="20231109 13:46:40.945"/>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
 <var>${resp}</var>
@@ -79,52 +79,52 @@
 <arg>${body}</arg>
 <arg>headers=${header}</arg>
 <doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
-<msg timestamp="20231108 16:28:49.757" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
-<msg timestamp="20231108 16:28:51.614" level="INFO">POST Request : url=http://10.142.4.171:8091/api/Applications 
+<msg timestamp="20231109 13:46:40.945" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20231109 13:46:43.198" level="INFO">POST Request : url=http://10.142.4.171:8091/api/Applications 
  path_url=/api/Applications 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '168'} 
- body=b'{"identityNumber": "1061246813", "dateOfBirthMonth": 11, "dateOfBirthYear": 1409, "policyEffectiveDate": "10-11-2023", "isGrantTameeni": true, "recaptchaToken": "True"}' 
+ body=b'{"identityNumber": "1061246813", "dateOfBirthMonth": 11, "dateOfBirthYear": 1409, "policyEffectiveDate": "11-11-2023", "isGrantTameeni": true, "recaptchaToken": "True"}' 
  </msg>
-<msg timestamp="20231108 16:28:51.614" level="INFO">POST Response : url=http://10.142.4.171:8091/api/Applications 
+<msg timestamp="20231109 13:46:43.198" level="INFO">POST Response : url=http://10.142.4.171:8091/api/Applications 
  status=201, reason=Created 
- headers={'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 08 Nov 2023 14:28:56 GMT', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
- body={"personInfoResponseModel":{"englishFirstName":"MOHAMMED","englishLastName":"KHAYAT","englishSecondName":"KHALID","englishThirdName":"M","arabicFirstName":"محمد","arabicSecondName":"محمد","arabicThirdName":"خالد","arabicLastName":"خياط","dateOfBirthG":null,"dateOfBirthH":"11-11-1409","nationalityDescAr":"العربية السعودية","nationalityDescEn":"Saudi Arabia","sponsorIdentityNumber":"1061246813"},"applicationReference":"6c3c924a-123e-4c65-84c6-7e80ca8a9feb"} 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Date': 'Thu, 09 Nov 2023 11:46:47 GMT', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
+ body={"personInfoResponseModel":{"englishFirstName":"MOHAMMED","englishLastName":"KHAYAT","englishSecondName":"KHALID","englishThirdName":"M","arabicFirstName":"محمد","arabicSecondName":"محمد","arabicThirdName":"خالد","arabicLastName":"خياط","dateOfBirthG":null,"dateOfBirthH":"11-11-1409","nationalityDescAr":"العربية السعودية","nationalityDescEn":"Saudi Arabia","sponsorIdentityNumber":"1061246813"},"applicationReference":"61013d9a-58d1-4e29-aedf-55f0a8e3e70b"} 
  </msg>
-<msg timestamp="20231108 16:28:51.614" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
-<status status="PASS" starttime="20231108 16:28:49.757" endtime="20231108 16:28:51.614"/>
+<msg timestamp="20231109 13:46:43.198" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231109 13:46:40.945" endtime="20231109 13:46:43.198"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${actualResult}</arg>
 <arg>${resp.json()}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20231108 16:28:51.614" level="INFO">${actualResult} = {'personInfoResponseModel': {'englishFirstName': 'MOHAMMED', 'englishLastName': 'KHAYAT', 'englishSecondName': 'KHALID', 'englishThirdName': 'M', 'arabicFirstName': 'محمد', 'arabicSecondName': 'محمد',...</msg>
-<status status="PASS" starttime="20231108 16:28:51.614" endtime="20231108 16:28:51.614"/>
+<msg timestamp="20231109 13:46:43.198" level="INFO">${actualResult} = {'personInfoResponseModel': {'englishFirstName': 'MOHAMMED', 'englishLastName': 'KHAYAT', 'englishSecondName': 'KHALID', 'englishThirdName': 'M', 'arabicFirstName': 'محمد', 'arabicSecondName': 'محمد',...</msg>
+<status status="PASS" starttime="20231109 13:46:43.198" endtime="20231109 13:46:43.198"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${resp.status_code}</arg>
 <arg>${statuscode}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<msg timestamp="20231108 16:28:51.614" level="INFO">Argument types are:
+<msg timestamp="20231109 13:46:43.198" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20231108 16:28:51.614" endtime="20231108 16:28:51.614"/>
+<status status="PASS" starttime="20231109 13:46:43.198" endtime="20231109 13:46:43.198"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${actualResult}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20231108 16:28:51.614" level="INFO">${actualResult} = {'personInfoResponseModel': {'englishFirstName': 'MOHAMMED', 'englishLastName': 'KHAYAT', 'englishSecondName': 'KHALID', 'englishThirdName': 'M', 'arabicFirstName': 'محمد', 'arabicSecondName': 'محمد',...</msg>
-<status status="PASS" starttime="20231108 16:28:51.614" endtime="20231108 16:28:51.614"/>
+<msg timestamp="20231109 13:46:43.198" level="INFO">${actualResult} = {'personInfoResponseModel': {'englishFirstName': 'MOHAMMED', 'englishLastName': 'KHAYAT', 'englishSecondName': 'KHALID', 'englishThirdName': 'M', 'arabicFirstName': 'محمد', 'arabicSecondName': 'محمد',...</msg>
+<status status="PASS" starttime="20231109 13:46:43.198" endtime="20231109 13:46:43.198"/>
 </kw>
-<status status="PASS" starttime="20231108 16:28:49.757" endtime="20231108 16:28:51.614"/>
+<status status="PASS" starttime="20231109 13:46:40.945" endtime="20231109 13:46:43.198"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${ApplicationRef}</arg>
 <arg>${actualResult['applicationReference']}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20231108 16:28:51.614" level="INFO">${ApplicationRef} = 6c3c924a-123e-4c65-84c6-7e80ca8a9feb</msg>
-<status status="PASS" starttime="20231108 16:28:51.614" endtime="20231108 16:28:51.619"/>
+<msg timestamp="20231109 13:46:43.198" level="INFO">${ApplicationRef} = 61013d9a-58d1-4e29-aedf-55f0a8e3e70b</msg>
+<status status="PASS" starttime="20231109 13:46:43.198" endtime="20231109 13:46:43.198"/>
 </kw>
-<status status="PASS" starttime="20231108 16:28:49.754" endtime="20231108 16:28:51.619"/>
+<status status="PASS" starttime="20231109 13:46:40.936" endtime="20231109 13:46:43.198"/>
 </kw>
 <kw name="Create API session" library="API_Preferences">
 <kw name="Generate Random String" library="String">
@@ -132,21 +132,21 @@
 <arg>4</arg>
 <arg>[NUMBERS]</arg>
 <doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<msg timestamp="20231108 16:28:51.619" level="INFO">${randomNumber} = 3225</msg>
-<status status="PASS" starttime="20231108 16:28:51.619" endtime="20231108 16:28:51.619"/>
+<msg timestamp="20231109 13:46:43.198" level="INFO">${randomNumber} = 9811</msg>
+<status status="PASS" starttime="20231109 13:46:43.198" endtime="20231109 13:46:43.198"/>
 </kw>
 <kw name="Catenate" library="BuiltIn">
 <var>${sessionName}</var>
 <arg>session_${randomNumber}</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<msg timestamp="20231108 16:28:51.619" level="INFO">${sessionName} = session_3225</msg>
-<status status="PASS" starttime="20231108 16:28:51.619" endtime="20231108 16:28:51.619"/>
+<msg timestamp="20231109 13:46:43.198" level="INFO">${sessionName} = session_9811</msg>
+<status status="PASS" starttime="20231109 13:46:43.198" endtime="20231109 13:46:43.198"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${sessionName}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20231108 16:28:51.619" level="INFO">${sessionName} = session_3225</msg>
-<status status="PASS" starttime="20231108 16:28:51.619" endtime="20231108 16:28:51.619"/>
+<msg timestamp="20231109 13:46:43.198" level="INFO">${sessionName} = session_9811</msg>
+<status status="PASS" starttime="20231109 13:46:43.198" endtime="20231109 13:46:43.198"/>
 </kw>
 <kw name="Create Session" library="RequestsLibrary">
 <arg>${sessionName}</arg>
@@ -154,17 +154,17 @@
 <arg>timeout=30</arg>
 <arg>disable_warnings=1</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20231108 16:28:51.619" level="INFO">Creating Session using : alias=session_3225, url=http://10.142.4.171:8091/api, headers={},                     cookies={}, auth=None, timeout=30, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20231108 16:28:51.619" endtime="20231108 16:28:51.619"/>
+<msg timestamp="20231109 13:46:43.198" level="INFO">Creating Session using : alias=session_9811, url=http://10.142.4.171:8091/api, headers={},                     cookies={}, auth=None, timeout=30, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231109 13:46:43.198" endtime="20231109 13:46:43.198"/>
 </kw>
-<status status="PASS" starttime="20231108 16:28:51.619" endtime="20231108 16:28:51.619"/>
+<status status="PASS" starttime="20231109 13:46:43.198" endtime="20231109 13:46:43.198"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${Payload}</var>
-<arg>json.dumps({"IdentityNumber":"${identityNumber}" ,"dateOfBirthMonth": ${dateOfBirthMonth} ,"dateOfBirthYear": ${dateOfBirthYear} ,"policyEffectiveDate": "${TodayDate+2}","mobileNumber":None})</arg>
+<arg>json.dumps({"IdentityNumber":"${identityNumber}" ,"dateOfBirthMonth": ${dateOfBirthMonth} ,"dateOfBirthYear": ${dateOfBirthYear} ,"policyEffectiveDate": "${TodayDate+2}","mobileNumber":"05563"})</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20231108 16:28:51.619" level="INFO">${Payload} = {"IdentityNumber": "1061246813", "dateOfBirthMonth": 11, "dateOfBirthYear": 1409, "policyEffectiveDate": "10-11-2023", "mobileNumber": null}</msg>
-<status status="PASS" starttime="20231108 16:28:51.619" endtime="20231108 16:28:51.619"/>
+<msg timestamp="20231109 13:46:43.198" level="INFO">${Payload} = {"IdentityNumber": "1061246813", "dateOfBirthMonth": 11, "dateOfBirthYear": 1409, "policyEffectiveDate": "11-11-2023", "mobileNumber": "05563"}</msg>
+<status status="PASS" starttime="20231109 13:46:43.198" endtime="20231109 13:46:43.198"/>
 </kw>
 <kw name="Put request and check response with body appears" library="API_Preferences">
 <arg>${sessionName}</arg>
@@ -175,8 +175,8 @@
 <var>${header}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20231108 16:28:51.619" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20231108 16:28:51.619" endtime="20231108 16:28:51.619"/>
+<msg timestamp="20231109 13:46:43.198" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20231109 13:46:43.198" endtime="20231109 13:46:43.205"/>
 </kw>
 <kw name="Put Request" library="RequestsLibrary">
 <var>${resp}</var>
@@ -185,58 +185,76 @@
 <arg>${body}</arg>
 <arg>headers=${header}</arg>
 <doc>*DEPRECATED* Please use `PUT On Session` instead.</doc>
-<msg timestamp="20231108 16:28:51.619" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
-<msg timestamp="20231108 16:28:51.900" level="INFO">PUT Request : url=http://10.142.4.171:8091/api/Applications/6c3c924a-123e-4c65-84c6-7e80ca8a9feb/Sponsors 
- path_url=/api/Applications/6c3c924a-123e-4c65-84c6-7e80ca8a9feb/Sponsors 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '140'} 
- body=b'{"IdentityNumber": "1061246813", "dateOfBirthMonth": 11, "dateOfBirthYear": 1409, "policyEffectiveDate": "10-11-2023", "mobileNumber": null}' 
+<msg timestamp="20231109 13:46:43.205" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg timestamp="20231109 13:46:43.805" level="INFO">PUT Request : url=http://10.142.4.171:8091/api/Applications/61013d9a-58d1-4e29-aedf-55f0a8e3e70b/Sponsors 
+ path_url=/api/Applications/61013d9a-58d1-4e29-aedf-55f0a8e3e70b/Sponsors 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '143'} 
+ body=b'{"IdentityNumber": "1061246813", "dateOfBirthMonth": 11, "dateOfBirthYear": 1409, "policyEffectiveDate": "11-11-2023", "mobileNumber": "05563"}' 
  </msg>
-<msg timestamp="20231108 16:28:51.904" level="INFO">PUT Response : url=http://10.142.4.171:8091/api/Applications/6c3c924a-123e-4c65-84c6-7e80ca8a9feb/Sponsors 
- status=500, reason=Internal Server Error 
- headers={'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 08 Nov 2023 14:28:56 GMT', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
- body={"traceId":null,"errorCode":null,"errors":["System.NullReferenceException: Object reference not set to an instance of an object.\n   at Tameeni.Demostic.ApplicationService.Features.Applications.CreateApplication.UpdateSponsorDataCommandValidator.IsDigitsOnly(String str) in /src/Tameeni.Demostic.ApplicationService/Features/Applications/UpdateApplication/UpdateSponsorDataCommandValidator.cs:line 99\n   at FluentValidation.Validators.PredicateValidator`2.IsValid(ValidationContext`1 context, TProperty value) in /_/src/FluentValidation/Validators/PredicateValidator.cs:line 41\n   at FluentValidation.Internal.RuleComponent`2.ValidateAsync(ValidationContext`1 context, TProperty value, Boolean useAsync, CancellationToken cancellation) in /_/src/FluentValidation/Internal/RuleComponent.cs:line 89\n   at FluentValidation.Internal.PropertyRule`2.ValidateAsync(ValidationContext`1 context, Boolean useAsync, CancellationToken cancellation) in /_/src/FluentValidation/Internal/PropertyRule.cs:line 143\n   at FluentValidation.AbstractValidator`1.ValidateInternalAsync(ValidationContext`1 context, Boolean useAsync, CancellationToken cancellation) in /_/src/FluentValidation/AbstractValidator.cs:line 241\n   at FluentValidation.AbstractValidator`1.Validate(ValidationContext`1 context) in /_/src/FluentValidation/AbstractValidator.cs:line 207\n   at FluentValidation.AspNetCore.FluentValidationModelValidator.Validate(ModelValidationContext mvContext) in /_/src/FluentValidation.AspNetCore/FluentValidationModelValidatorProvider.cs:line 154\n   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.ValidateNode()\n   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.VisitComplexType(IValidationStrategy defaultStrategy)\n   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.VisitImplementation(ModelMetadata&amp; metadata, String&amp; key, Object model)\n   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.Visit(ModelMetadata metadata, String key, Object model)\n   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.Validate(ModelMetadata metadata, String key, Object model, Boolean alwaysValidateAtTopLevel, Object container)\n   at FluentValidation.AspNetCore.FluentValidationVisitor.ValidateInternal(ModelMetadata metadata, String key, Object model, Func`1 continuation) in /_/src/FluentValidation.AspNetCore/FluentValidationVisitor.cs:line 71\n   at Microsoft.AspNetCore.Mvc.ModelBinding.ObjectModelValidator.Validate(ActionContext actionContext, ValidationStateDictionary validationState, String prefix, Object model, ModelMetadata metadata, Object container)\n   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.EnforceBindRequiredAndValidate(ObjectModelValidator baseObjectValidator, ActionContext actionContext, ParameterDescriptor parameter, ModelMetadata metadata, ModelBindingContext modelBindingContext, ModelBindingResult modelBindingResult, Object container)\n   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)\n   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.&lt;&gt;c__DisplayClass0_0.&lt;&lt;CreateBinderDelegate&gt;g__Bind|0&gt;d.MoveNext()\n--- End of stack trace from previous location ---\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeInnerFilterAsync&gt;g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeFilterPipelineAsync&gt;g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeAsync&gt;g__Logged|17_1(ResourceInvoker invoker)\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeAsync&gt;g__Logged|17_1(ResourceInvoker invoker)\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.&lt;Invoke&gt;g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)\n   at InsurTech.Core.Api.Infrastructure.Middlewares.IdentityMiddleware.InvokeAsync(HttpContext httpContext)\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\n   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)\n   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)\n   at InsurTech.Core.Api.Infrastructure.Middlewares.ExceptionMiddleware.InvokeAsync(HttpContext httpContext)"]} 
+<msg timestamp="20231109 13:46:43.805" level="INFO">PUT Response : url=http://10.142.4.171:8091/api/Applications/61013d9a-58d1-4e29-aedf-55f0a8e3e70b/Sponsors 
+ status=422, reason=Unprocessable Entity 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Date': 'Thu, 09 Nov 2023 11:46:47 GMT', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
+ body={"traceId":null,"errorCode":"ValidationErrorCode","errors":["Minimum Length MobileNumber is  10 Number"]} 
  </msg>
-<msg timestamp="20231108 16:28:51.904" level="INFO">${resp} = &lt;Response [500]&gt;</msg>
-<status status="PASS" starttime="20231108 16:28:51.619" endtime="20231108 16:28:51.904"/>
+<msg timestamp="20231109 13:46:43.805" level="INFO">${resp} = &lt;Response [422]&gt;</msg>
+<status status="PASS" starttime="20231109 13:46:43.205" endtime="20231109 13:46:43.805"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${actualResult}</arg>
 <arg>${resp.json()}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20231108 16:28:51.904" level="INFO">${actualResult} = {'traceId': None, 'errorCode': None, 'errors': ['System.NullReferenceException: Object reference not set to an instance of an object.\n   at Tameeni.Demostic.ApplicationService.Features.Applications.C...</msg>
-<status status="PASS" starttime="20231108 16:28:51.904" endtime="20231108 16:28:51.904"/>
+<msg timestamp="20231109 13:46:43.805" level="INFO">${actualResult} = {'traceId': None, 'errorCode': 'ValidationErrorCode', 'errors': ['Minimum Length MobileNumber is  10 Number']}</msg>
+<status status="PASS" starttime="20231109 13:46:43.805" endtime="20231109 13:46:43.805"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${resp.status_code}</arg>
 <arg>${statuscode}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<msg timestamp="20231108 16:28:51.904" level="INFO">Argument types are:
+<msg timestamp="20231109 13:46:43.805" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<msg timestamp="20231108 16:28:51.904" level="FAIL">500 != 422</msg>
-<status status="FAIL" starttime="20231108 16:28:51.904" endtime="20231108 16:28:51.904"/>
+<status status="PASS" starttime="20231109 13:46:43.805" endtime="20231109 13:46:43.805"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${actualResult}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" starttime="20231108 16:28:51.904" endtime="20231108 16:28:51.904"/>
+<msg timestamp="20231109 13:46:43.805" level="INFO">${actualResult} = {'traceId': None, 'errorCode': 'ValidationErrorCode', 'errors': ['Minimum Length MobileNumber is  10 Number']}</msg>
+<status status="PASS" starttime="20231109 13:46:43.805" endtime="20231109 13:46:43.805"/>
 </kw>
-<status status="FAIL" starttime="20231108 16:28:51.619" endtime="20231108 16:28:51.906"/>
+<status status="PASS" starttime="20231109 13:46:43.198" endtime="20231109 13:46:43.805"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${actualResult}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" starttime="20231108 16:28:51.906" endtime="20231108 16:28:51.906"/>
+<msg timestamp="20231109 13:46:43.805" level="INFO">${actualResult} = {'traceId': None, 'errorCode': 'ValidationErrorCode', 'errors': ['Minimum Length MobileNumber is  10 Number']}</msg>
+<status status="PASS" starttime="20231109 13:46:43.805" endtime="20231109 13:46:43.805"/>
 </kw>
-<kw name=" verify API Response when send PUT Request for sponsor with mobile number is empty" library="Keywords_PUT_Sponsors">
+<kw name=" verify API Response when send PUT Request for sponsor with mobile number less than 10 digits" library="Keywords_PUT_Sponsors">
 <arg>${actualResult}</arg>
 <doc>veriy actual resutls</doc>
-<status status="NOT RUN" starttime="20231108 16:28:51.906" endtime="20231108 16:28:51.906"/>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${actualResult['errorCode']}</arg>
+<arg>ValidationErrorCode</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20231109 13:46:43.805" endtime="20231109 13:46:43.805"/>
 </kw>
-<status status="FAIL" starttime="20231108 16:28:49.754" endtime="20231108 16:28:51.906">500 != 422</status>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${actualResult['errors']}</arg>
+<arg>['Minimum Length MobileNumber is</arg>
+<arg>10 Number']</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231109 13:46:43.805" level="INFO">Argument types are:
+&lt;class 'list'&gt;
+&lt;class 'str'&gt;</msg>
+<msg timestamp="20231109 13:46:43.805" level="FAIL">10 Number']: ['Minimum Length MobileNumber is  10 Number'] != ['Minimum Length MobileNumber is</msg>
+<status status="FAIL" starttime="20231109 13:46:43.805" endtime="20231109 13:46:43.805"/>
+</kw>
+<status status="FAIL" starttime="20231109 13:46:43.805" endtime="20231109 13:46:43.805"/>
+</kw>
+<status status="FAIL" starttime="20231109 13:46:40.936" endtime="20231109 13:46:43.815">10 Number']: ['Minimum Length MobileNumber is  10 Number'] != ['Minimum Length MobileNumber is</status>
 </test>
 <doc>Create application suite is designed for test and verify that application created successfully with its application reference</doc>
-<status status="FAIL" starttime="20231108 16:28:49.524" endtime="20231108 16:28:51.906"/>
+<status status="FAIL" starttime="20231109 13:46:40.715" endtime="20231109 13:46:43.815"/>
 </suite>
 <statistics>
 <total>
@@ -249,7 +267,7 @@
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20231108 16:28:49.725" level="ERROR">Error in file 'E:\injection\DomesticWorkerAPIAutomation\Resources\Database\Assertions.robot' on line 2: Importing library 'SeleniumLibrary' failed: ModuleNotFoundError: No module named 'SeleniumLibrary'
+<msg timestamp="20231109 13:46:40.915" level="ERROR">Error in file 'E:\injection\DomesticWorkerAPIAutomation\Resources\Database\Assertions.robot' on line 2: Importing library 'SeleniumLibrary' failed: ModuleNotFoundError: No module named 'SeleniumLibrary'
 Traceback (most recent call last):
   None
 PYTHONPATH:
@@ -262,7 +280,7 @@ PYTHONPATH:
   C:\Users\aahmed\AppData\Local\Programs\Python\Python311\Lib
   C:\Users\aahmed\AppData\Local\Programs\Python\Python311
   C:\Users\aahmed\AppData\Local\Programs\Python\Python311\Lib\site-packages</msg>
-<msg timestamp="20231108 16:28:49.734" level="ERROR">Error in file 'E:\injection\DomesticWorkerAPIAutomation\Resources\Database\DataBaseConnection.robot' on line 2: Importing library 'SeleniumLibrary' failed: ModuleNotFoundError: No module named 'SeleniumLibrary'
+<msg timestamp="20231109 13:46:40.926" level="ERROR">Error in file 'E:\injection\DomesticWorkerAPIAutomation\Resources\Database\DataBaseConnection.robot' on line 2: Importing library 'SeleniumLibrary' failed: ModuleNotFoundError: No module named 'SeleniumLibrary'
 Traceback (most recent call last):
   None
 PYTHONPATH:
@@ -275,11 +293,11 @@ PYTHONPATH:
   C:\Users\aahmed\AppData\Local\Programs\Python\Python311\Lib
   C:\Users\aahmed\AppData\Local\Programs\Python\Python311
   C:\Users\aahmed\AppData\Local\Programs\Python\Python311\Lib\site-packages</msg>
-<msg timestamp="20231108 16:28:49.734" level="ERROR">Error in file 'E:\injection\DomesticWorkerAPIAutomation\Resources\Keyword\Keywords-GetSponsorInfo.robot' on line 9: Library setting requires value.</msg>
-<msg timestamp="20231108 16:28:49.744" level="ERROR">Error in file 'E:\injection\DomesticWorkerAPIAutomation\Resources\Keyword\Common.robot' on line 8: Resource file '..\Resources\Objects\API_Preferences.robot' does not exist.</msg>
-<msg timestamp="20231108 16:28:49.744" level="ERROR">Error in file 'E:\injection\DomesticWorkerAPIAutomation\Resources\Keyword\Common.robot' on line 9: Resource file '..\Resources\Keyword\Keywords_CreateApplication.robot' does not exist.</msg>
-<msg timestamp="20231108 16:28:49.744" level="ERROR">Error in file 'E:\injection\DomesticWorkerAPIAutomation\Resources\Keyword\Common.robot' on line 10: Resource file '..\Resources\Keyword\Keywords_GettingWorkersInquiryFromYakeet.robot' does not exist.</msg>
-<msg timestamp="20231108 16:28:49.757" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
-<msg timestamp="20231108 16:28:51.619" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg timestamp="20231109 13:46:40.926" level="ERROR">Error in file 'E:\injection\DomesticWorkerAPIAutomation\Resources\Keyword\Keywords-GetSponsorInfo.robot' on line 9: Library setting requires value.</msg>
+<msg timestamp="20231109 13:46:40.926" level="ERROR">Error in file 'E:\injection\DomesticWorkerAPIAutomation\Resources\Keyword\Common.robot' on line 8: Resource file '..\Resources\Objects\API_Preferences.robot' does not exist.</msg>
+<msg timestamp="20231109 13:46:40.926" level="ERROR">Error in file 'E:\injection\DomesticWorkerAPIAutomation\Resources\Keyword\Common.robot' on line 9: Resource file '..\Resources\Keyword\Keywords_CreateApplication.robot' does not exist.</msg>
+<msg timestamp="20231109 13:46:40.936" level="ERROR">Error in file 'E:\injection\DomesticWorkerAPIAutomation\Resources\Keyword\Common.robot' on line 10: Resource file '..\Resources\Keyword\Keywords_GettingWorkersInquiryFromYakeet.robot' does not exist.</msg>
+<msg timestamp="20231109 13:46:40.945" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20231109 13:46:43.205" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
 </errors>
 </robot>
